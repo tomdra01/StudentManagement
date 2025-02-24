@@ -1,3 +1,4 @@
+using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using StudentManagement.Models;
 
@@ -13,7 +14,10 @@ public class AppDbContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseInMemoryDatabase("StudentManagementDB");
+            Env.Load();
+            
+            var connectionString = Env.GetString("CONNECTION_STRING");
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
     }
 
