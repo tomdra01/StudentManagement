@@ -8,7 +8,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     public AppDbContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseInMemoryDatabase("StudentManagementDB"); // or use your preferred provider
+        optionsBuilder.UseInMemoryDatabase("StudentManagementDB");
 
         return new AppDbContext(optionsBuilder.Options);
     }
