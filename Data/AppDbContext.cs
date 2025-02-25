@@ -9,6 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<Student> Students { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<Enrollment> Enrollments { get; set; }
+    public DbSet<Instructor> Instructors { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -32,5 +33,10 @@ public class AppDbContext : DbContext
             .HasOne<Course>()
             .WithMany()
             .HasForeignKey(e => e.CourseId);
+        
+        modelBuilder.Entity<Course>()
+            .HasOne<Instructor>()
+            .WithMany()
+            .HasForeignKey(c => c.InstructorId);
     }
 }
