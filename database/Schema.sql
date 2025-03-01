@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `Students` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `FirstName` longtext CHARACTER SET utf8mb4 NOT NULL,
     `LastName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `MiddleName` VARCHAR(50) NULL,
     `Email` longtext CHARACTER SET utf8mb4 NOT NULL,
     `EnrollmentDate` datetime(6) NOT NULL,
     CONSTRAINT `PK_Students` PRIMARY KEY (`Id`)
