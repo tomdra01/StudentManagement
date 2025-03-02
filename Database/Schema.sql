@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `Instructors` (
 CREATE TABLE IF NOT EXISTS `Courses` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `Title` longtext CHARACTER SET utf8mb4 NOT NULL,
-    `Credits` int NOT NULL,
+    `Credits` DECIMAL(5,2) NOT NULL,
     `InstructorId` int NULL,
     CONSTRAINT `PK_Courses` PRIMARY KEY (`Id`),
     CONSTRAINT `FK_Courses_Instructors_InstructorId` FOREIGN KEY (`InstructorId`) REFERENCES `Instructors` (`Id`) ON DELETE SET NULL
