@@ -1,4 +1,4 @@
-# 7. Modify the Course Credits relation
+# 7. Modify the Course Credits relation - EF
 
 So EF by default would generate a migration with destructive approach. This means it would change int to decimal(65,30) where we could lost some already existing data in the table.
 
