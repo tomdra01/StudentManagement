@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Enrollments` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `StudentId` int NOT NULL,
     `CourseId` int NOT NULL,
-    `Grade` longtext CHARACTER SET utf8mb4 NULL,
+    `FinalGrade` longtext CHARACTER SET utf8mb4 NULL,
     CONSTRAINT `PK_Enrollments` PRIMARY KEY (`Id`),
     CONSTRAINT `FK_Enrollments_Courses_CourseId` FOREIGN KEY (`CourseId`) REFERENCES `Courses` (`Id`) ON DELETE CASCADE,
     CONSTRAINT `FK_Enrollments_Students_StudentId` FOREIGN KEY (`StudentId`) REFERENCES `Students` (`Id`) ON DELETE CASCADE
