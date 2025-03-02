@@ -1,12 +1,23 @@
 ﻿START TRANSACTION;
 
 ALTER DATABASE CHARACTER SET utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `Instructors` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `FirstName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `LastName` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `Email` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `HireDate` datetime(6) NOT NULL,
+    CONSTRAINT `PK_Instructors` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
       
 CREATE TABLE IF NOT EXISTS `Courses` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `Title` longtext CHARACTER SET utf8mb4 NOT NULL,
     `Credits` int NOT NULL,
-    CONSTRAINT `PK_Courses` PRIMARY KEY (`Id`)
+    `InstructorId` int NULL,
+    CONSTRAINT `PK_Courses` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Courses_Instructors_InstructorId` FOREIGN KEY (`InstructorId`) REFERENCES `Instructors` (`Id`) ON DELETE SET NULL
 ) CHARACTER SET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `Students` (
