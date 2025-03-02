@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `Students` (
     `LastName` longtext CHARACTER SET utf8mb4 NOT NULL,
     `MiddleName` VARCHAR(50) NULL,
     `Email` longtext CHARACTER SET utf8mb4 NOT NULL,
+    `DateOfBirth` DATE NULL,
     `EnrollmentDate` datetime(6) NOT NULL,
     CONSTRAINT `PK_Students` PRIMARY KEY (`Id`)
 ) CHARACTER SET=utf8mb4;
