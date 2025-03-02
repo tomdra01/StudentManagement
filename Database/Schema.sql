@@ -2,6 +2,16 @@
 
 ALTER DATABASE CHARACTER SET utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `Departments` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Name` VARCHAR(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Budget` DECIMAL(15, 2) NOT NULL,
+    `StartDate` datetime(6) NOT NULL,
+    `DepartmentHeadId` int NULL,
+    CONSTRAINT `PK_Departments` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Departments_Instructors_DepartmentHeadId` FOREIGN KEY (`DepartmentHeadId`) REFERENCES `Instructors` (`Id`) ON DELETE SET NULL
+) CHARACTER SET=utf8mb4;
+
 CREATE TABLE IF NOT EXISTS `Instructors` (
     `Id` int NOT NULL AUTO_INCREMENT,
     `FirstName` longtext CHARACTER SET utf8mb4 NOT NULL,

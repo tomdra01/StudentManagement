@@ -38,5 +38,10 @@ public class AppDbContext : DbContext
             .HasOne<Instructor>()
             .WithMany()
             .HasForeignKey(c => c.InstructorId);
+        
+        modelBuilder.Entity<Department>()
+            .HasOne<Instructor>()
+            .WithMany()
+            .HasForeignKey(d => d.DepartmentHeadId);
     }
 }
